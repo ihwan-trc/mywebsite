@@ -13,7 +13,7 @@
           <li><a class="nav-link scrollto {{ ($title === "Tutorial") ? 'active' : '' }}" href="/tutorial">Tutorial</a></li>
           <li class="dropdown"><a href="#"><span>Layanan</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="/website">Website <span class="badge bg-danger">HOT</span></a></li>
+              <li><a href="/layanan">Website <span class="badge bg-danger">HOT</span></a></li>
               <li><a href="#">Desain Logo</a></li>
               <li><a href="#">Mobile App</a></li>
               <li><a href="#">SEO</a></li>

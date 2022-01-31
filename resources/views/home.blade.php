@@ -9,8 +9,12 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h1>Solusi Lebih Baik Untuk Bisnis Anda</h1>
-          <h2>Kami adalah tim desainer berbakat yang membuat aplikasi dan situs web sesuai dengan kebutuhan Anda</h2>
+
+            @foreach ($heros as $hero)
+               <h1>{{ $hero["title"] }}</h1>
+               <h2>{{ $hero["body"] }}</h2>
+            @endforeach
+
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#about" class="btn-get-started scrollto">Layanan</a>
             <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Profil Kami</span></a>
@@ -33,15 +37,14 @@
       </div>
 
       <div class="row">
+        @foreach ($layanans as $layanan)
 
         <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
           <div class="box">
-            <h3>Build Website</h3>
-            <h4><span>Mulai Rp 946.000</span></h4>
+            <h3><a href="/layanan/{{ $layanan['slug'] }}">{{ $layanan['title'] }}</a></h3>
+            <h4><span>{{ $layanan['harga'] }}</span></h4>
             <ul>
-              <li><i class="bx bx-check"></i> Website siap pakai</li>
-              <li><i class="bx bx-check"></i> Gratis Domain Hosting 1th</li>
-              <li><i class="bx bx-check"></i> Tampilan bisa Request</li>
+              <li><i class="bx bx-check"></i>{{ $layanan['body'] }}</li>
               <!-- <li class="na"><i class="bx bx-x"></i> <span>Pharetra massa massa ultricies</span></li>
               <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis hendrerit</span></li> -->
             </ul>
@@ -49,45 +52,7 @@
           </div>
         </div>
 
-        <div class="col-lg-3 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
-          <div class="box featured">
-            <h3>Desain Logo</h3>
-            <h4><span>Mulai Rp 946.000</span></h4>
-            <ul>
-              <li><i class="bx bx-check"></i> Konsep Logo bisa Request</li>
-              <li><i class="bx bx-check"></i> Ada Pilihan Opsi Logo</li>
-              <li><i class="bx bx-check"></i> Bisa Revisi sampai cocok</li>
-            </ul>
-            <a href="#" class="buy-btn">Detail</a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-          <div class="box">
-            <h3>Mobile App</h3>
-            <h4><span>Mulai Rp 946.000</span></h4>
-            <ul>
-              <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-              <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-              <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-            </ul>
-            <a href="#" class="buy-btn">Detail</a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-          <div class="box">
-            <h3>SEO</h3>
-            <h4><span>Mulai Rp 946.000</span></h4>
-            <ul>
-              <li><i class="bx bx-check"></i> Laporan Iklan Setiap Minggu</li>
-              <li><i class="bx bx-check"></i> Proses Cepat Anti Ribet</li>
-              <li><i class="bx bx-check"></i> Tidak ada Batasan Saldo</li>
-            </ul>
-            <a href="#" class="buy-btn">Detail</a>
-          </div>
-        </div>
-
+        @endforeach
       </div>
 
     </div>

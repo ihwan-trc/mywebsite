@@ -14,8 +14,42 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    $hero = [
+        [
+            "title" => "Solusi Lebih Baik Untuk Bisnis Anda",
+            "body" => "Kami adalah tim desainer berbakat yang membuat aplikasi dan situs web sesuai dengan kebutuhan Anda"
+        ]
+    ];
+    $layanan = [
+        [
+            "title" => "Build Website",
+            "slug" => "build-website",
+            "harga" => "Mulai Rp 800.000",
+            "body" => "List layanan 1"
+        ],
+        [
+            "title" => "Desain Logo",
+            "slug" => "desain-logo",
+            "harga" => "Mulai Rp 800.000",
+            "body" => "List layanan 2"
+        ],
+        [
+            "title" => "Mobile App",
+            "slug" => "mobile-app",
+            "harga" => "Mulai Rp 800.000",
+            "body" => "List layanan 3"
+        ],
+        [
+            "title" => "SEO",
+            "slug" => "seo",
+            "harga" => "Mulai Rp 800.000",
+            "body" => "List layanan 4"
+        ]
+    ];
     return view('home', [
-        "title" => "Home"
+        "title" => "Home",
+        "heros" => $hero,
+        "layanans" => $layanan
     ]);
 });
 
@@ -31,9 +65,15 @@ Route::get('/tutorial', function () {
     ]);
 });
 
-Route::get('/website', function () {
-    return view('website', [
+Route::get('/layanan', function () {
+    return view('layanan', [
         "title" => "Website"
+    ]);
+});
+
+Route::get('/layanan/{slug}', function ($slug) {
+    return view('layananweb', [
+        "title" => $slug
     ]);
 });
 
