@@ -1,10 +1,10 @@
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top {{ ($title === "Shop") || ($title === "Tutorial") || ($title === "Portfolio") ? 'header-inner-pages' : '' }}">
+<header id="header" class="fixed-top {{ ($title !== "Home") || ($title !== "layanan") || ($title !== "team") ? 'header-inner-pages' : '' }}">
     <div class="container d-flex align-items-center">
 
       <!-- <h1 class="logo me-auto"><a href="/">Arsha</a></h1> -->
       <!-- Uncomment below if you prefer to use an image logo -->
-      <a href="/" class="logo me-auto"><img src="img/logo.png" alt="" class="img-fluid"></a>
+      <a href="/" class="logo me-auto"><img src="/img/logo.png" alt="" class="img-fluid"></a>
 
       <nav id="navbar" class="navbar">
         <ul>
