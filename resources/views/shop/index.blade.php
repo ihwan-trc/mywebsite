@@ -24,7 +24,7 @@
       <div class="container">
         <div class="row">
             <div class="col-lg-4">
-                <div class="portfolio-info">
+                {{-- <div class="portfolio-info">
                     <h3>KATEGORI PRODUK</h3>
                     <ul class="list-group">
                         @foreach ($categories as $category)
@@ -34,7 +34,7 @@
                         </li>
                         @endforeach
                     </ul>
-                </div>
+                </div> --}}
                 <div class="portfolio-info">
                     <h3>PALING LARIS</h3>
                     <div class="d-flex">
@@ -58,7 +58,8 @@
                 </div>
             </div>
             <div class="col-lg-8">
-                {{-- <div class="card mb-3">
+                {{-- @if ($products->count())
+                <div class="card mb-3">
                     @foreach ($products as $product)
                     <img src="https://source.unsplash.com/1200x400/?website" class="card-img-top" alt="...">
                     <div class="card-body text-center">
@@ -68,18 +69,21 @@
                       <button type="button" class="btn btn-primary btn-sm">Rp 145.000</button>
                     </div>
                     @endforeach
-                </div> --}}
+                </div>
+                @else
+                <p class="text-center fs-4">No product found.</p>
+                @endif --}}
                 <div class="row">
                     @foreach ($products as $product)
                     <div class="col-lg-3 mb-3" data-aos="zoom-in" data-aos-delay="100">
                         <div class="icon-box">
                             <img src="https://source.unsplash.com/200x200/?mobile application" class="img-fluid" alt="">
                             <h2>
-                                <a href="/product/{{ $product['slug'] }}">{{ $product['title'] }}</a>
+                                <a href="/product/{{ $product->slug }}">{{ $product->title }}</a>
                             </h2>
-                            <h5>{{ $product['author'] }}</h5>
-                            <p>{{ $product['body'] }}</p>
-                            <button type="button" class="btn btn-primary btn-sm">Rp 145.000</button>
+                            <p>By. <a href="">{{ $product->user->name }}</a></p>
+                            <p>{{ $product->excerpt }}</p>
+                            <a class="btn btn-primary btn-sm" href="/product/{{ $product->slug }}">Rp 145.000</a>
                         </div>
                     </div>
                     @endforeach

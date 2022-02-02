@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProductController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Category;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -100,7 +100,7 @@ Route::get('/', function () {
 
 Route::get('/shop', [ProductController::class, 'index']);
 
-Route::get('product/{slug}', [ProductController::class, 'show']);
+Route::get('product/{product:slug}', [ProductController::class, 'show']);
 
 Route::get('/tutorial', function () {
     return view('tutorial.index', [
@@ -129,5 +129,20 @@ Route::get('/portfolio', function () {
 Route::get('/team', function () {
     return view('team.index', [
         "title" => "Team"
+    ]);
+});
+
+Route::get('/categories', function () {
+    return view('categories', [
+        'title' => 'Product Category',
+        'categories' => Category::all()
+    ]);
+});
+
+Route::get('/categories/{category:slug}', function (Category $category) {
+    return view('category', [
+        'title' => $category->name,
+        'products' => $category->products,
+        'category' => $category->name
     ]);
 });

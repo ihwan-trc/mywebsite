@@ -11,16 +11,15 @@ class ProductController extends Controller
     {
         return view('shop.index', [
             "title" => "Shop",
-            "categories" => Product::categories(),
             "products" => Product::all()
         ]);
     }
 
-    public function show($slug)
+    public function show(Product $product)
     {
         return view('shop.product', [
             "title" => "single product",
-            "product" => Product::find($slug)
+            "product" => $product
         ]);
     }
 }
